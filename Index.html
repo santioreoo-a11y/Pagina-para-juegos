@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <title>PROGRAMACION</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Style.css') }}">
+</head>
+<body>
+    <nav class="navegacion">
+        <a href="{{ url_for('index') }}">HOME </a>
+        <a href="{{ url_for('pagina1') }}">PAGINA 1 </a>
+        <a href="{{ url_for('pagina2') }}">PAGINA 2</a>
+        <a href="#">ANEXOS </a>
+    </nav>
+    <main>
+        <section class="Izquierda">
+            <h1>Eres lo que puedes soñar</h1>
+            <img src="{{ url_for('static', filename='IMG/gamer.gif') }}" class="poster" alt="Imagen poster">
+        </section>
+        <section class="Derecha">
+            <h2>Datos personales</h2>
+            <form class="formulario" action="{{ url_for('Guardar') }}" method="POST">
+                <label>Nombres y apellidos</label>
+                <input type="text" id="Nombre" name="Nombre" required>
+                <label>Correo</label>
+                <input type="email" id="Correo" name="Correo" required>
+                <label>Telefono</label>
+                <input type="tel" id="Telefono" name="Telefono" required> <label>Edad</label>
+                <input type="number" id="Edad" name="Edad" min="18" max="50" required>
+                <label>Genero</label>
+                <select id="Genero" name="Genero" required>
+                    <option value="">Seleccione..</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+    <div id="cookieBanner" class="cookie-banner">
+        <p>Este sitio usa cookies para mejorar tu experiencia. <a href="#">Más info</a></p>
+        <div class="cookie-actions">
+            <button id="acceptCookies">Aceptar</button>
+            <button id="declineCookies">Rechazar</button>
+        </div>
+    </div>
+
+    <!-- 🔹 Toast de bienvenida -->
+    <div id="welcomeToast" class="welcome-toast">
+        ¡Bienvenido a la página!
+    </div>
+
+    <script src="{{ url_for('static', filename='cookies.js') }}"></script>
+</body>
+</html>
+
